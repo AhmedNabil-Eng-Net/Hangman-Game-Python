@@ -15,9 +15,6 @@ def clear_screen():
 
 divider = " # " + "-" * 30 + " # "
 
-print(divider)
-print("🎯 Welcome to Hangman Game! 🎯")
-
 replaying = True
 
 # Hangman drawing for each number of lost lives
@@ -135,6 +132,9 @@ while replaying:
 
         # Continue while there are hidden letters and remaining lives
         if "_" in hidden_word and lives > 0:
+            
+            print(divider)
+            print("🎯 Welcome to Hangman Game! 🎯")
 
             print(divider)
             print(HANGMAN_PICS[6 - lives])
@@ -145,15 +145,15 @@ while replaying:
             print(divider)
 
             # Get one letter from the player
-            the_letter = input(
-                f"-> Guess a letter: {dash_word} : "
-            ).lower().strip()
+            the_letter = input(f"-> Guess a letter: {dash_word} : ").lower().strip()
 
             print(divider)
 
             # Make sure the input is a single letter
             if len(the_letter) != 1 or not the_letter.isalpha():
                 print("⚠️ Please enter a single letter (a-z).")
+                time.sleep(2.2)
+                clear_screen()
                 continue
 
             # Check if the letter exists in the word
@@ -162,7 +162,7 @@ while replaying:
                 # Prevent guessing an already revealed letter
                 if the_letter in hidden_word:
                     print("⚠️ This letter has already been entered.")
-                    time.sleep(1.5)
+                    time.sleep(2.4)
                     clear_screen()
                     continue
 
@@ -176,25 +176,18 @@ while replaying:
 
                 # Show where the letter was found
                 if len(chars) > 1:
-                    print(
-                        f'✅ Great answer! The letter "{the_letter}" '
-                        f'is found {len(chars)} times.'
-                    )
-                    print(
-                        f'📍 Found in positions: '
-                        f'[{" - ".join(map(str, chars))}]'
-                    )
+                    print(f'✅ Great answer! The letter "{the_letter}" '
+                          f'is found {len(chars)} times.')
+                    print(f'📍 Found in positions: '
+                          f'[{" - ".join(map(str, chars))}]')
 
                 else:
                     print("✅ Correct Answer!")
-                    print(
-                        f'📍 Letter [{the_letter}] is found '
-                        f'in position: {chars[0]}'
-                    )
+                    print(f'📍 Letter [{the_letter}] is found '
+                          f'in position: {chars[0]}')
 
-                time.sleep(1.5)
-                clear_screen()
-
+                time.sleep(2)
+                
 
             else:
                 # Wrong guesses reduce one life
@@ -203,7 +196,7 @@ while replaying:
                 print(f"❤️‍🩹 Lives - 1\n💝 Lives left: [{lives}]")
 
 
-            time.sleep(1.5)
+            time.sleep(3)
             clear_screen()
 
 
@@ -218,28 +211,23 @@ while replaying:
                 print(f"🔍 The word was: [{chosen_word.capitalize()}]")
 
             else:
-                print(
-                    f"🎉 The Word: {dash_word} "
-                    f"=> {chosen_word.capitalize()}"
-                     )
+                print(f"🎉 The Word: {dash_word} "
+                      f"=> {chosen_word.capitalize()}")
                 print("🏆 You found it! Well Done!")
 
             print(divider)
-            time.sleep(3)
+            time.sleep(3.7)
 
             # Ask if the player wants another round
-            play_again = input(
-                "-> ▶️ Play again? (y or n): "
-            ).lower().strip()
+            play_again = input("-> ▶️ Play again? (y or n): ").lower().strip()
 
             # Keep asking until the input is valid
             while play_again not in ("y", "n"):
                 print("⚠️ Invalid input. Please choose (y or n).")
                 print(divider)
+                time.sleep(2)
 
-                play_again = input(
-                    "-> ▶️ Play again? (y or n): "
-                ).lower().strip()
+                play_again = input("-> ▶️ Play again? (y or n): ").lower().strip()
 
             if play_again == "y":
                 playing = False
