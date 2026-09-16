@@ -35,7 +35,7 @@ Make sure Python is installed on your computer.
 Run the game with:
 
 ```bash
-python hangman.py
+main.py
 ```
 
 ## 🎮 How to Play
