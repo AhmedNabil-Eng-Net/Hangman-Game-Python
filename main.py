@@ -162,7 +162,7 @@ while replaying:
                 # Prevent guessing an already revealed letter
                 if the_letter in hidden_word:
                     print("⚠️ This letter has already been entered.")
-                    time.sleep(.8)
+                    time.sleep(1.5)
                     clear_screen()
                     continue
 
@@ -192,7 +192,7 @@ while replaying:
                         f'in position: {chars[0]}'
                     )
 
-                time.sleep(.8)
+                time.sleep(1.5)
                 clear_screen()
 
 
@@ -203,7 +203,7 @@ while replaying:
                 print(f"❤️‍🩹 Lives - 1\n💝 Lives left: [{lives}]")
 
 
-            time.sleep(1)
+            time.sleep(1.5)
             clear_screen()
 
 
@@ -225,7 +225,7 @@ while replaying:
                 print("🏆 You found it! Well Done!")
 
             print(divider)
-            time.sleep(.8)
+            time.sleep(3)
 
             # Ask if the player wants another round
             play_again = input(
